@@ -23,6 +23,17 @@ the script specifically for the first day of the 2020 puzzles, you would use...
 
     python ./2020/01/aoc_2020_01.py -h
 
+## License and legal usage
+I was originally going to release this under the beerware license but considering
+there might be some folks out there that have to run all their code references by
+a legal department, I kept it simple with the BSD 3 Clause License. Still feel free
+to buy me a beer if you happen to be in the same place and you found this useful.
+Here's the legal summary from `tldrlegal.com`:
+
+"The BSD 3-clause license allows you almost unlimited freedom with the software
+so long as you include the BSD copyright and license notice in it (found in
+Fulltext). "
+
 ## TODO List
 * Catch up on previous years' challenges.
 * Make a generic puzzle runner that can run from the project root
