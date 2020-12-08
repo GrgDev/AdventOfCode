@@ -52,7 +52,7 @@ def main(args=None):
 
 if __name__ == '__main__':
     # See the parse_args() function comment at the top to understand the arg usage in the line below.
-    main("-i ./input1.txt -p 1")
+    main("-i ./example_input2.txt -p 1".split())
     # Uncomment the line above if you want to run this code from the IDE and want to pass the args via code.
     # Uncomment the line below instead if you want to run this code from the CLI and pass args there as well.
     # main()

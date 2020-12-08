@@ -29,15 +29,40 @@ def parse_args(args=None):
 # Just about every AOC puzzle gives you a large input file that you need to parse into some usable data structure.
 # Do that here and return the collection of data structures to be handled by another function.
 def parse_input(file_handler):
-    line_outputs = []
+    parsed_groups = []
+    group_answers = {}
+    group_size = 0
     for line in file_handler:
-        pass  # TODO: Put file parsing code here
-    return line_outputs
+        yes_answers = line.strip()
+        if len(yes_answers) == 0:
+            group_answers['size'] = group_size
+            parsed_groups.append(group_answers)
+            group_answers = {}
+            group_size = 0
+        else:
+            group_size += 1
+            for answer in yes_answers:
+                if answer in group_answers:
+                    group_answers[answer] += 1
+                else:
+                    group_answers[answer] = 1
+    return parsed_groups
 
 
 # This function is here to isolate and organize the puzzle solving logic after input parsing.
 def solve_puzzle(parsed_contents, puzzle_part=1):
-    pass  # TODO: Solve the rest of the fucking puzzle
+    if puzzle_part == 1:
+        unique_answer_sum = 0
+        for group_answers in parsed_contents:
+            unique_answer_sum += (len(group_answers) - 1)  # Have to -1 here because of the added 'size' field
+        print(f"Total Sum of Unique Group Answers: {unique_answer_sum}")
+    if puzzle_part == 2:
+        unanimous_answer_sum = 0
+        for group_answers in parsed_contents:
+            for answer, count in group_answers.items():
+                if answer != "size" and count == group_answers['size']:
+                    unanimous_answer_sum += 1
+        print(f"Total Sum of Unanimous Group Answers: {unanimous_answer_sum}")
 
 
 def main(args=None):
@@ -50,7 +75,7 @@ def main(args=None):
 
 if __name__ == '__main__':
     # See the parse_args() function comment at the top to understand the arg usage in the line below.
-    main("-i ./input1.txt -p 1")
+    main("-i ./puzzle_input.txt -p 2".split())
     # Uncomment the line above if you want to run this code from the IDE and want to pass the args via code.
     # Uncomment the line below instead if you want to run this code from the CLI and pass args there as well.
     # main()

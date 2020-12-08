@@ -14,6 +14,9 @@ Where...
 * `<day>` is the day in December of `<year>` the puzzle was published
   * If `<day>` is less than 10, include a leading 0 such as `01` for the first day.
 * `<input_file>` is the path to file containing the puzzle input
+  * Solution scripts will usually come with a small input file containing an example
+    extracted from the puzzle description called `example_input.txt` and a large
+    input file containing the real puzzle input called `puzzle_input.txt`.
 * `<part_number>` is the puzzle part you want the solution for, usually 1 or 2
 
 You can also usually use the `-h` or `--help` flag on the individual scripts to get
